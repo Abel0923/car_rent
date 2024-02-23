@@ -41,7 +41,7 @@ function Home() {
 
     useEffect(() => {
         const fetchCars = async () => {
-            await axios.post("http://localhost:3001/api/v1/car/all")
+            await axios.post("https://carrentapi-carrent.up.railway.app/api/v1/car/all")
                 .then(_res =>{
                     console.log(_res)
                     setCars(prev => _res.data.data)
@@ -75,9 +75,10 @@ function Home() {
             return false
         }
 
-        await axios.post("http://localhost:3001/api/v1/car/create",{name, user: email,model, quantity})
+        await axios.post("https://carrentapi-carrent.up.railway.app/api/v1/car/create",{name, user: email,model, quantity})
         .then(_res =>{
             setNotifMsg(prev => "User Create")
+            setCars(prev => [...prev, _res.data.data])
         })
         .catch(_err => {
             setNotifMsg("Something went wrong")
