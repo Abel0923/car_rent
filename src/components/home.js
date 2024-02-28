@@ -176,42 +176,42 @@ function Home() {
     }
 
   return (
-    <div className='flex flex-1 flex-col h-[75vh] justify-center items-center'>
-        <div className='gap-4'>
-                {!open ? renderCreateUI() : <></>}
-        </div>
-        <div className='mt-16'>
-            {renderTable()}
-        </div>
-        <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description">
+    <div className='flex flex-1 flex-col justify-center items-center'>
+            <div className='gap-4'>
+                    {!open ? renderCreateUI() : <></>}
+            </div>
+            <div className='mt-16'>
+                {renderTable()}
+            </div>
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description">
 
-            <DialogTitle id="alert-dialog-title">
-            {"Update Car"}
-            </DialogTitle>
-            <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-                {renderCreateUI('UPDATE')}
-            </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={handleUpdate} autoFocus>
-                Update
-            </Button>
-            </DialogActions>
-        </Dialog>
+                <DialogTitle id="alert-dialog-title">
+                {"Update Car"}
+                </DialogTitle>
+                <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                    {renderCreateUI('UPDATE')}
+                </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                <Button onClick={handleClose}>Cancel</Button>
+                <Button onClick={handleUpdate} autoFocus>
+                    Update
+                </Button>
+                </DialogActions>
+            </Dialog>
 
-        <Snackbar
-        anchorOrigin={{ vertical, horizontal }}
-        open={showNotif}
-        autoHideDuration={5000}
-        message={notifMsg}
-        key={vertical + horizontal}
-      />
+            <Snackbar
+            anchorOrigin={{ vertical, horizontal }}
+            open={showNotif}
+            autoHideDuration={5000}
+            message={notifMsg}
+            key={vertical + horizontal}
+        />
     </div>
   );
 }
